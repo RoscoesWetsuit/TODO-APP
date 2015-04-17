@@ -3,6 +3,10 @@
 <head>
 	<title> Cade's To-Do List</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+
+
 </head>
 <body>
 	<div class="wrap">
@@ -10,7 +14,7 @@
 			<ul>
 				<?php
 				require("includes/connect.php");
-				$mysqli = new mysqli('localhost', 'root', 'todo');
+				$mysqli = new mysqli('localhost', 'root', 'root', 'todo');
 				$query = "SELECT * FROM tasks ORDER BY date ASC, time ASC";
 				if($result = $mysqli->query($query)){
 					$numrows = $result->num_rows;
@@ -34,7 +38,7 @@
 		<input type="text" name="new-task" placeholder="Add new item..."/>
 	</form>
 </body>
-<script type="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script>
 	add_task(); //calling the add task function
 
